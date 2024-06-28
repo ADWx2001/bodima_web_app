@@ -1,6 +1,9 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+//routes
+import userRoute from './routes/user.route.js';
 
 dotenv.config();
 const app = express();
@@ -23,3 +26,6 @@ mongoose.connect(process.env.MONGO_URL).then(()=>{
     console.log(err);
 })
 
+
+//routes usage
+app.use("/api/user", userRoute);
