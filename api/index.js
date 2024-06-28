@@ -4,10 +4,11 @@ import dotenv from 'dotenv';
 
 //routes
 import userRoute from './routes/user.route.js';
+import authRoute from './routes/auth.route.js';
 
 dotenv.config();
 const app = express();
-app.use(express.json()); //default middleware
+app.use(express.json()); //default middleware for use json objects in server
 
 app.get('/', (req, res)=>{ //test case
     res.send("Hi");
@@ -29,3 +30,4 @@ mongoose.connect(process.env.MONGO_URL).then(()=>{
 
 //routes usage
 app.use("/api/user", userRoute);
+app.use("/api/auth", authRoute);
