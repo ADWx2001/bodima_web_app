@@ -31,3 +31,13 @@ mongoose.connect(process.env.MONGO_URL).then(()=>{
 //routes usage
 app.use("/api/user", userRoute);
 app.use("/api/auth", authRoute);
+
+app.use((err, req, res, next)=>{
+    const errorStatus = err.status || 500;
+    const errorMessage = err.message || 'Internal Server Error!';
+    return res.status(errorStatus).json({
+        success:false,
+        errorStatus,
+        errorMessage,
+    });
+});
