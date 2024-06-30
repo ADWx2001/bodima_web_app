@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import OAuth from "../components/OAuth";
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -79,15 +80,8 @@ export default function SignUp() {
         >
           {loading ? "Loading..." : "Sign up"}
         </button>
-        <button
-          type="button"
-          className="bg-rose-700 hover:opacity-95 disabled:opacity-80 text-white p-3 rounded-lg"
-          onClick={() => {
-            // Implement your Google sign-in logic here
-          }}
-        >
-          Continue with Google
-        </button>
+       <OAuth/>
+        
       </form>
       <div className="flex gap-2 mt-3">
         <p className="">Already have an account?</p>
