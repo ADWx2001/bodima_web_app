@@ -15,6 +15,7 @@ export default function Profile() {
   const [progress, setProgress] = useState(0);
   const [uploadError, setUploadError] = useState(false);
   const [formData, setFormData] = useState();
+  console.log(currentUser._id)
   console.log(file);
   console.log(formData);
   console.log(progress);
@@ -63,7 +64,7 @@ export default function Profile() {
         />
         <img
           onClick={() => fileRef.current.click()}
-          src={formData.avatar || currentUser.avatar}
+          src={currentUser.avatar || formData.avatar }
           id="avatar"
           alt=""
           className="self-center rounded-full h-24 w-24 object-cover cursor-pointer mt-3"
